@@ -7,22 +7,22 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce_MW.Services
 {
-    public class UserHelper : IUserHelper   
+    public class UserHelper : IUserHelper
     {
         private readonly DatabaseContext _context;
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        //private readonly SignInManager<User> _signInManager;
+        private readonly SignInManager<User> _signInManager;
 
         public UserHelper(DatabaseContext context,
             UserManager<User> userManager,
-            RoleManager<IdentityRole> roleManager)
-           // SignInManager<User> signInManager)
+            RoleManager<IdentityRole> roleManager,
+            SignInManager<User> signInManager)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
-           // _signInManager = signInManager;
+            _signInManager = signInManager;
         }
 
         public async Task<IdentityResult> AddUserAsync(User user, string password)
@@ -53,7 +53,7 @@ namespace ECommerce_MW.Services
             return await _userManager.IsInRoleAsync(user, roleName);
         }
 
-       /* public async Task<SignInResult> LoginAsync(LoginViewModel loginViewModel)
+        public async Task<SignInResult> LoginAsync(LoginViewModel loginViewModel)
         {
             return await _signInManager.PasswordSignInAsync(loginViewModel.Username, loginViewModel.Password, loginViewModel.RememberMe, false);
         }
@@ -61,6 +61,6 @@ namespace ECommerce_MW.Services
         public async Task LogoutAsync()
         {
             await _signInManager.SignOutAsync();
-        } */
+        }
     }
-}
+}   

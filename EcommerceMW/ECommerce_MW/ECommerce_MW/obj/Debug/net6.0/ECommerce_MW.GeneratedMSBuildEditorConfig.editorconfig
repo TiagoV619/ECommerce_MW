@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\santy\Documents\Asignaturas\ProgramaciondeSoftware\PROYECTOS\EcommerceMW\ECommerce_MW\ECommerce_MW
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/santy/Documents/Asignaturas/ProgramaciondeSoftware/PROYECTOS/EcommerceMW/ECommerce_MW/ECommerce_MW/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/santy/Documents/Asignaturas/ProgramaciondeSoftware/PROYECTOS/EcommerceMW/ECommerce_MW/ECommerce_MW/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

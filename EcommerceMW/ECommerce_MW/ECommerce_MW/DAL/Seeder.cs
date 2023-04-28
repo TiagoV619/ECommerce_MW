@@ -1,28 +1,31 @@
 ﻿using ECommerce_MW.DAL.Entities;
-
+using ECommerce_MW.Enums;
+using ECommerce_MW.Helpers;
 
 namespace ECommerce_MW.DAL
 {
     public class SeederDb
     {
         private readonly DatabaseContext _context;
-      //  private readonly IUserHelper _userHelper;
+        private readonly IUserHelper _userHelper;
 
-        public SeederDb(DatabaseContext context)//, IUserHelper userHelper)
+        public SeederDb(DatabaseContext context, IUserHelper userHelper)
         {
             _context = context;
-          //  _userHelper = userHelper;
+            _userHelper = userHelper;
+           
         }
 
         public async Task SeederAsync()
         {
+            var email = "santiagovarela@yopmail.com";
             await _context.Database.EnsureCreatedAsync(); // me reemplaza el comando update-database
             await PopulateCategoriesAsync();
             await PopulateCountriesAsync();
-        //    await PopulateRolesAsync();
-        //    await PopulateUserAsync("Admin", "Role", "admin_role@yopmail.com", "3002323232", "Street Fighter 1", "102030", UserType.Admin);
-        //    await PopulateUserAsync("User", "Role", "user_role@yopmail.com", "40056566756", "Street Fighter 2", "405060", UserType.User);
-            
+            await PopulateRolesAsync();
+            await PopulateUserAsync("Admin", "Role", "admin_role@yopmail.com", "3002323232", "Street Fighter 1", "102030", UserType.Admin);
+            await PopulateUserAsync("User", "Role", "user_role@yopmail.com", "40056566756", "Street Fighter 2", "405060", UserType.User);
+           
             await _context.SaveChangesAsync();
         }
 
@@ -114,42 +117,41 @@ namespace ECommerce_MW.DAL
             }
         }
 
-     /*   private async Task PopulateRolesAsync()
+        private async Task PopulateRolesAsync()
         {
             await _userHelper.CheckRoleAsync(UserType.Admin.ToString());
             await _userHelper.CheckRoleAsync(UserType.User.ToString());
         }
+         private async Task PopulateUserAsync(
+             string firstName,
+             string lastName,
+             string email,
+             string phone,
+             string address,
+             string document,
+             UserType userType)
+         {
+             User user = await _userHelper.GetUserAsync(email);
 
-        private async Task PopulateUserAsync(
-            string firstName,
-            string lastName,
-            string email,
-            string phone,
-            string address,
-            string document,
-            UserType userType)
-        {
-            User user = await _userHelper.GetUserAsync(email);
+             if (user == null)
+             {
+                 user = new User
+                 {
+                     CreatedDate = DateTime.Now,
+                     FirstName = firstName,
+                     LastName = lastName,
+                     Email = email,
+                     UserName = email,
+                     PhoneNumber = phone,
+                     Address = address,
+                     Document = document,
+                     City = _context.Cities.FirstOrDefault(),
+                     UserType = userType,
+                 };
 
-            if (user == null)
-            {
-                user = new User
-                {
-                    CreatedDate = DateTime.Now,
-                    FirstName = firstName,
-                    LastName = lastName,
-                    Email = email,
-                    UserName = email,
-                    PhoneNumber = phone,
-                    Address = address,
-                    Document = document,
-                    City = _context.Cities.FirstOrDefault(),
-                    UserType = userType,
-                };
-
-                await _userHelper.AddUserAsync(user, "123456");
-                await _userHelper.AddUserToRoleAsync(user, userType.ToString());
-            }
-        } */
+                 await _userHelper.AddUserAsync(user, "123456");
+                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
+             }
+         } 
     }
 }
