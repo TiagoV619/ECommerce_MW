@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce_MW.Controllers
 {
-    //  [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private readonly DatabaseContext _context;
@@ -22,7 +22,7 @@ namespace ECommerce_MW.Controllers
             return View(await _context.Categories.ToListAsync());
         }
 
-        //   [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();

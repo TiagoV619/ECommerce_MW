@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\ECommerce_MW.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\santy\\Documents\\Asignaturas\\ProgramaciondeSoftware\\PROYECTOS\\EcommerceMW\\ECommerce_MW\\ECommerce_MW\\wwwroot\\Images\\401-response.png",
+      "PackagePath": "staticwebassets\\Images\\401-response.png"
+    },
+    {
+      "Id": "C:\\Users\\santy\\Documents\\Asignaturas\\ProgramaciondeSoftware\\PROYECTOS\\EcommerceMW\\ECommerce_MW\\ECommerce_MW\\wwwroot\\Images\\404-Page-Featured-Image.png",
+      "PackagePath": "staticwebassets\\Images\\404-Page-Featured-Image.png"
+    },
+    {
       "Id": "C:\\Users\\santy\\Documents\\Asignaturas\\ProgramaciondeSoftware\\PROYECTOS\\EcommerceMW\\ECommerce_MW\\ECommerce_MW\\wwwroot\\Images\\Image_not_available.png",
       "PackagePath": "staticwebassets\\Images\\Image_not_available.png"
     },

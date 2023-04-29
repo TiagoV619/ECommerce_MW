@@ -13,7 +13,7 @@ using ECommerce_MW.Models;
 
 namespace ECommerce_MW.Controllers
 {
-    //[Authorize(Roles = "Admin")]  
+    [Authorize(Roles = "Admin")]  
    public class CountriesController : Controller
     {
          #region Constructor
